@@ -1,3 +1,8 @@
+
+
+**`README.md`**:
+
+```markdown
 # Comandos de Git Más Usados 📋
 
 Esta es una referencia rápida de los comandos de Git que usamos frecuentemente en este proyecto. Úsala como guía para trabajar de manera eficiente.
@@ -6,114 +11,166 @@ Esta es una referencia rápida de los comandos de Git que usamos frecuentemente 
 
 ## 📂 Configuración del Repositorio
 
-### Inicializar un repositorio:
+### 1. Inicializar un repositorio:
 ```bash
 git init
-Agregar un remoto:
-bash
-Copiar código
+```
+
+### 2. Agregar un remoto:
+```bash
 git remote add origin <url-del-repositorio>
-Verificar los remotos configurados:
-bash
-Copiar código
+```
+
+### 3. Verificar los remotos configurados:
+```bash
 git remote -v
-🛠️ Trabajo con Archivos
-Agregar archivos al área de preparación (staging area):
-bash
-Copiar código
-git add <archivo>
-Para agregar todos los archivos:
-bash
-Copiar código
-git add .
-Registrar un commit con un mensaje:
-bash
-Copiar código
+```
+
+---
+
+## 🛠️ Trabajo con Archivos
+
+### 1. Agregar archivos al área de preparación (staging area):
+- Para agregar un archivo específico:
+  ```bash
+  git add <archivo>
+  ```
+- Para agregar todos los archivos:
+  ```bash
+  git add .
+  ```
+
+### 2. Registrar un commit con un mensaje:
+```bash
 git commit -m "Mensaje claro del cambio realizado"
-Verificar el estado del repositorio:
-bash
-Copiar código
+```
+
+### 3. Verificar el estado del repositorio:
+```bash
 git status
-🌿 Trabajo con Ramas
-Crear una nueva rama:
-bash
-Copiar código
+```
+
+---
+
+## 🌿 Trabajo con Ramas
+
+### 1. Crear una nueva rama:
+```bash
 git branch <nombre-de-la-rama>
-Cambiar a otra rama:
-bash
-Copiar código
+```
+
+### 2. Cambiar a otra rama:
+```bash
 git checkout <nombre-de-la-rama>
-Crear una nueva rama y cambiar a ella al mismo tiempo:
-bash
-Copiar código
+```
+
+### 3. Crear una nueva rama y cambiar a ella al mismo tiempo:
+```bash
 git checkout -b <nombre-de-la-rama>
-Listar todas las ramas (locales y remotas):
-bash
-Copiar código
+```
+
+### 4. Listar todas las ramas (locales y remotas):
+```bash
 git branch -a
-Eliminar una rama local:
-bash
-Copiar código
+```
+
+### 5. Eliminar una rama local:
+```bash
 git branch -d <nombre-de-la-rama>
-⬆️ Subir Cambios
-Subir la rama actual al remoto:
-bash
-Copiar código
+```
+
+---
+
+## ⬆️ Subir Cambios
+
+### 1. Subir la rama actual al remoto:
+```bash
 git push -u origin <nombre-de-la-rama>
-Subir cambios después de un commit:
-bash
-Copiar código
+```
+
+### 2. Subir cambios después de un commit:
+```bash
 git push
-⬇️ Descargar Cambios
-Descargar cambios del remoto sin fusionarlos:
-bash
-Copiar código
+```
+
+---
+
+## ⬇️ Descargar Cambios
+
+### 1. Descargar cambios del remoto sin fusionarlos:
+```bash
 git fetch
-Descargar y fusionar cambios automáticamente:
-bash
-Copiar código
+```
+
+### 2. Descargar y fusionar cambios automáticamente:
+```bash
 git pull
-📜 Ver Historial de Cambios
-Ver el historial de commits:
-bash
-Copiar código
+```
+
+---
+
+## 📜 Ver Historial de Cambios
+
+### 1. Ver el historial de commits:
+```bash
 git log
-Ver el historial de commits simplificado:
-bash
-Copiar código
+```
+
+### 2. Ver el historial de commits simplificado:
+```bash
 git log --oneline
-Ver historial con un gráfico de ramas:
-bash
-Copiar código
+```
+
+### 3. Ver historial con un gráfico de ramas:
+```bash
 git log --all --oneline --graph
-🔄 Flujos de Trabajo Comunes
-Clonar un repositorio existente:
-bash
-Copiar código
+```
+
+---
+
+## 🔄 Flujos de Trabajo Comunes
+
+### 1. Clonar un repositorio existente:
+```bash
 git clone <url-del-repositorio>
-Crear un pull request (GitHub):
-Sube los cambios con git push.
-Ve al repositorio en GitHub.
-Crea un Pull Request desde tu rama hacia main.
-👥 Colaboración
-Cambiar a la rama de un colaborador:
-bash
-Copiar código
+```
+
+### 2. Crear un pull request (GitHub):
+1. Sube los cambios con `git push`.
+2. Ve al repositorio en GitHub.
+3. Crea un **Pull Request** desde tu rama hacia `main`.
+
+---
+
+## 👥 Colaboración
+
+### 1. Cambiar a la rama de un colaborador:
+```bash
 git checkout <nombre-de-la-rama>
-Fusionar una rama en la actual:
-bash
-Copiar código
+```
+
+### 2. Fusionar una rama en la actual:
+```bash
 git merge <nombre-de-la-rama>
-❓ Resolver Problemas
-Revertir cambios en un archivo antes de hacer commit:
-bash
-Copiar código
+```
+
+---
+
+## ❓ Resolver Problemas
+
+### 1. Revertir cambios en un archivo antes de hacer commit:
+```bash
 git checkout -- <archivo>
-Ver diferencias entre los archivos modificados:
-bash
-Copiar código
+```
+
+### 2. Ver diferencias entre los archivos modificados:
+```bash
 git diff
-Revertir el último commit (sin borrar los cambios):
-bash
-Copiar código
+```
+
+### 3. Revertir el último commit (sin borrar los cambios):
+```bash
 git reset --soft HEAD~1
+```
+
+---
