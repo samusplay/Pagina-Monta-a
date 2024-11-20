@@ -1,116 +1,119 @@
-# Proyecto Montaña - Página Web 🌄
+# Comandos de Git Más Usados 📋
 
-Bienvenido al repositorio del proyecto Montaña. Este repositorio contiene la estructura y desarrollo de una página web creada con Bootstrap. Aquí encontrarás toda la información necesaria para colaborar en el proyecto.
-
----
-
-## 📂 Estructura del Proyecto
-
-- `index.html`: Página principal del proyecto.
-- `css/`: Archivos de estilos (CSS personalizados).
-- `js/`: Scripts JavaScript utilizados.
-- `scss/`: Archivos de estilos en formato SASS.
-- `lib/`: Librerías externas (Owl Carousel, Tempus Dominus, etc.).
-- `img/`: Imágenes del proyecto.
-- `mail/`: Scripts para manejo de correos.
+Esta es una referencia rápida de los comandos de Git que usamos frecuentemente en este proyecto. Úsala como guía para trabajar de manera eficiente.
 
 ---
 
-## 🛠️ Configuración Inicial
+## 📂 Configuración del Repositorio
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/samusplay/Pagina-Monta-a.git
-   cd Pagina-Monta-a
-Configurar la rama en la que vas a trabajar:
-
-Alejandro:
-bash
-Copiar código
-git checkout alejandro/trabajo
-Johan:
-bash
-Copiar código
-git checkout johan/trabajo
-Hacer cambios en tu rama y registrar los cambios:
-
-bash
-Copiar código
-git add .
-git commit -m "Descripción de los cambios realizados"
-Subir los cambios al repositorio remoto:
-
-bash
-Copiar código
-git push
-📜 Comandos Importantes
-Configuración del Repositorio
-Inicializar el repositorio (solo para el inicio del proyecto):
-bash
-Copiar código
+### Inicializar un repositorio:
+```bash
 git init
+Agregar un remoto:
+bash
+Copiar código
+git remote add origin <url-del-repositorio>
+Verificar los remotos configurados:
+bash
+Copiar código
+git remote -v
+🛠️ Trabajo con Archivos
+Agregar archivos al área de preparación (staging area):
+bash
+Copiar código
+git add <archivo>
+Para agregar todos los archivos:
+bash
+Copiar código
 git add .
-git commit -m "Initial commit: Estructura base del proyecto"
-git remote add origin https://github.com/samusplay/Pagina-Monta-a.git
-git push -u origin main
-Trabajando con Ramas
+Registrar un commit con un mensaje:
+bash
+Copiar código
+git commit -m "Mensaje claro del cambio realizado"
+Verificar el estado del repositorio:
+bash
+Copiar código
+git status
+🌿 Trabajo con Ramas
 Crear una nueva rama:
 bash
 Copiar código
 git branch <nombre-de-la-rama>
-Cambiar de rama:
+Cambiar a otra rama:
 bash
 Copiar código
 git checkout <nombre-de-la-rama>
-Subir una rama al remoto:
+Crear una nueva rama y cambiar a ella al mismo tiempo:
 bash
 Copiar código
-git push -u origin <nombre-de-la-rama>
-Verificar Ramas y Commits
-Listar todas las ramas:
+git checkout -b <nombre-de-la-rama>
+Listar todas las ramas (locales y remotas):
 bash
 Copiar código
 git branch -a
-Ver todos los commits:
+Eliminar una rama local:
+bash
+Copiar código
+git branch -d <nombre-de-la-rama>
+⬆️ Subir Cambios
+Subir la rama actual al remoto:
+bash
+Copiar código
+git push -u origin <nombre-de-la-rama>
+Subir cambios después de un commit:
+bash
+Copiar código
+git push
+⬇️ Descargar Cambios
+Descargar cambios del remoto sin fusionarlos:
+bash
+Copiar código
+git fetch
+Descargar y fusionar cambios automáticamente:
+bash
+Copiar código
+git pull
+📜 Ver Historial de Cambios
+Ver el historial de commits:
 bash
 Copiar código
 git log
-Ver commits de forma simplificada:
+Ver el historial de commits simplificado:
 bash
 Copiar código
 git log --oneline
-Ver un historial gráfico:
+Ver historial con un gráfico de ramas:
 bash
 Copiar código
 git log --all --oneline --graph
-🤝 Flujo de Trabajo para Pull Requests
-Realiza cambios en tu rama asignada.
-Sube tus cambios con git push.
-Ve al repositorio en GitHub y crea un Pull Request desde tu rama hacia la rama main.
-Describe los cambios realizados en el Pull Request.
-El administrador del repositorio revisará y aprobará la fusión.
-👥 Colaboradores
-Samuel (Administrador) - Rama principal main
-Alejandro - Rama de trabajo alejandro/trabajo
-Johan - Rama de trabajo johan/trabajo
-🚀 Plan del Proyecto
-Semana 1 (15-17 Noviembre):
-
-Configuración del repositorio.
-Crear ramas de trabajo.
-Asignar roles y definir estructura.
-Semana 2 (18-23 Noviembre):
-
-Actualizar la información de about.html, contact.html y conectar enlaces.
-Traducir contenido al idioma objetivo.
-Semana 3 (23-27 Noviembre):
-
-Revisar la barra de navegación, servicios y testimonios.
-Subir cambios a main.
-Semana 4 (1-5 Diciembre):
-
-Mejorar diseño responsivo, colores y botones.
-💡 Notas
-Comunícate en el canal de equipo si tienes dudas sobre los cambios.
-Asegúrate de probar los cambios localmente antes de hacer un commit.
-Sigue las buenas prácticas para escribir mensajes de commit claros.
+🔄 Flujos de Trabajo Comunes
+Clonar un repositorio existente:
+bash
+Copiar código
+git clone <url-del-repositorio>
+Crear un pull request (GitHub):
+Sube los cambios con git push.
+Ve al repositorio en GitHub.
+Crea un Pull Request desde tu rama hacia main.
+👥 Colaboración
+Cambiar a la rama de un colaborador:
+bash
+Copiar código
+git checkout <nombre-de-la-rama>
+Fusionar una rama en la actual:
+bash
+Copiar código
+git merge <nombre-de-la-rama>
+❓ Resolver Problemas
+Revertir cambios en un archivo antes de hacer commit:
+bash
+Copiar código
+git checkout -- <archivo>
+Ver diferencias entre los archivos modificados:
+bash
+Copiar código
+git diff
+Revertir el último commit (sin borrar los cambios):
+bash
+Copiar código
+git reset --soft HEAD~1
