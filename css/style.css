@@ -6008,18 +6008,25 @@ a.close.disabled {
 .carousel-indicators .active {
   opacity: 1;
 }
-
-.carousel-caption {
+.overlay-dark {
   position: absolute;
-  right: 15%;
-  bottom: 20px;
-  left: 15%;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscuridad con transparencia */
+  z-index: 1; /* Debajo del texto pero encima de la imagen */
 }
+.carousel-item img {
+  position: relative; /* Para asegurarse de que la imagen esté detrás */
+  z-index: 0;
+}
+.carousel-caption {
+  z-index: 2; /* Por encima de la capa oscura */
+}
+
+
+
 
 @keyframes spinner-border {
   to {
@@ -9537,14 +9544,7 @@ h6,
   }
 }
 
-.carousel-caption {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
+
 
 @media (max-width: 576px) {
   .carousel-caption h4 {
@@ -9555,13 +9555,77 @@ h6,
   }
 }
 
+/* General Styles for the Booking Section */
+.booking {
+  position: relative;
+  margin-top: 100px !important; /* Baja el formulario */
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  
+}
+
+
+
+/* Extiende el contenedor del formulario al 100% del ancho */
+.booking .container {
+  max-width: 100% !important; /* Ancho completo de la pantalla */
+  padding-left: 0; /* Elimina el espacio a la izquierda */
+  padding-right: 0; /* Elimina el espacio a la derecha */
+}
+
+/* Asegura que el formulario ocupe todo el ancho del contenedor */
+.booking .bg-light {
+  border-radius: 0; /* Elimina los bordes redondeados */
+  padding: 30px; /* Añade un espacio interno al formulario */
+  margin: 0; /* Elimina cualquier margen extra */
+}
+
+/* Estilos para los inputs y selects del formulario */
+.booking .form-control, 
+.booking .custom-select {
+  border: 1px solid #ccc; /* Bordes ligeros */
+  border-radius: 5px; /* Esquinas ligeramente redondeadas */
+  height: 45px; /* Altura uniforme */
+}
+
+/* Ajusta el botón Enviar */
+.booking button[type="submit"] {
+  background-color: #68b300; /* Color de fondo verde */
+  color: white; /* Texto en blanco */
+  font-size: 16px; /* Tamaño de la fuente */
+  font-weight: bold; /* Texto en negrita */
+  border: none; /* Sin bordes */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Esquinas redondeadas */
+  cursor: pointer; /* Cursor en forma de mano */
+}
+
+/* Ajusta el botón al pasar el mouse */
+.booking button[type="submit"]:hover {
+  background-color: #5a9c00; /* Cambio de color en hover */
+}
+
+/* Media Query para Responsividad en pantallas medianas */
 @media (min-width: 768px) {
   .booking {
-    position: relative;
-    margin-top: -60px !important;
-    z-index: 1;
+      margin-top: -60px !important; /* Ajusta la posición para pantallas medianas */
   }
 }
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 767px) {
+  .booking .form-control,
+  .booking .custom-select {
+      margin-bottom: 15px; /* Añade espacio entre campos */
+  }
+
+  .booking button[type="submit"] {
+      width: 100%; /* Botón ocupa todo el ancho */
+  }
+}
+
+
 
 @media (min-width: 992px) {
   .about-text {
@@ -9731,9 +9795,67 @@ h6,
   box-shadow: 0 0 30px #CCCCCC;
 }
 
+/* Blog Item - Contenedor */
 .blog-item {
-  transition: .5s;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.blog-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen fija y recortada */
+.blog-img {
+  height: 250px; /* Altura fija para todas las imágenes */
+  width: 100%; /* Asegura que el ancho ocupe todo */
+  position: relative;
+}
+
+.blog-img img {
+  width: 100%; /* Fuerza el ancho al contenedor */
+  height: 100%; /* Altura exacta */
+  object-fit: cover; /* Recorta la imagen proporcionalmente */
+  transition: transform 0.3s ease-in-out;
+}
+
+.blog-img img:hover {
+  transform: scale(1.05); /* Efecto de zoom al hacer hover */
+}
+
+/* Fecha estilo */
+.blog-date {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #28a745; /* Verde */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Blog Content */
+.blog-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.blog-content a {
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.blog-content a:hover {
+  color: #28a745; /* Efecto hover verde */
+  text-decoration: underline;
+}
+
 
 .blog-item:hover {
   box-shadow: 0 0 30px #CCCCCC;
@@ -9769,3 +9891,933 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+
+/* =====================
+   Sección de Servicios
+   ===================== */
+
+/* Encabezado de la Sección */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h6 {
+  color: #6FBF4E; /* Verde elegante */
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.section-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Forzar altura fija para las tarjetas */
+.service-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* Altura uniforme para todas las tarjetas */
+  height: 350px; /* Ajusta según el tamaño requerido */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Asegurar que el texto no rompa el diseño */
+.service-description {
+  overflow: hidden; /* Evita que el texto desborde */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos */
+  display: -webkit-box; /* Habilita el modelo de caja flexible */
+  -webkit-box-orient: vertical; /* Orientación vertical */
+
+  /* Ignorar advertencias del editor */
+  -webkit-line-clamp: 3; /* Limita el texto a 3 líneas */
+}
+
+
+
+
+.service-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  border-color: #6FBF4E;
+  cursor: pointer;
+}
+
+/* Contenedor del Ícono */
+.icon-box {
+  background-color: #e8f5e9;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.icon-box i {
+  color: #6FBF4E;
+  font-size: 36px;
+}
+
+.service-item:hover .icon-box {
+  background-color: #6FBF4E;
+}
+
+.service-item:hover .icon-box i {
+  color: #fff;
+}
+
+/* Títulos de Servicio */
+.service-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.service-item:hover .service-title {
+  color: #6FBF4E;
+}
+
+/* Descripción del Servicio */
+.service-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.service-item:hover .service-description {
+  color: #333;
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+  .service-item {
+      margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h1 {
+      font-size: 28px;
+  }
+
+  .service-title {
+      font-size: 18px;
+  }
+
+  .service-description {
+      font-size: 14px;
+  }
+}
+
+/* ============================
+   SECCIÓN DE TESTIMONIOS
+============================= */
+
+/* Contenedor principal */
+.testimonials-section {
+  background-color: #f9f9f9; /* Fondo suave */
+  padding: 80px 20px; /* Espaciado interno */
+  text-align: center;
+}
+
+/* Encabezado de testimonios */
+.section-header {
+  margin-bottom: 50px;
+}
+
+.section-header h6 {
+  color: #6FBF4E; /* Color verde */
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.section-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Wrapper de las tarjetas */
+.testimonials-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adaptable */
+  gap: 30px; /* Espacio entre tarjetas */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjeta individual */
+.testimonial-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px); /* Efecto hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: #6FBF4E;
+}
+
+/* Imagen circular */
+.testimonial-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Hace la imagen circular */
+  object-fit: cover; /* Mantiene proporción */
+  border: 4px solid #6FBF4E;
+  margin-top: -60px; /* Saca la imagen un poco arriba */
+  background-color: #fff; /* Fondo blanco para borde */
+}
+
+/* Contenido del testimonio */
+.testimonial-content p {
+  font-size: 16px;
+  color: #555;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.testimonial-content h5 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.testimonial-content span {
+  font-size: 14px;
+  color: #777;
+  font-style: italic;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .section-header h1 {
+      font-size: 28px;
+  }
+
+  .testimonial-card {
+      padding: 15px;
+  }
+
+  .testimonial-content p {
+      font-size: 14px;
+  }
+}
+
+/* ==============================
+   SECCIÓN DEL EQUIPO MEJORADA
+============================== */
+
+/* Contenedor principal */
+.team-section {
+  background-color: #f9f9f9; /* Fondo suave */
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* Encabezado */
+.section-header h6 {
+  color: #6FBF4E;
+  font-size: 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section-header h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Wrapper del equipo usando Flexbox */
+.team-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  gap: 30px; /* Espacio entre tarjetas */
+}
+
+/* Tarjeta del equipo */
+.team-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 250px; /* Ancho fijo para todas las tarjetas */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del equipo */
+.team-img {
+  width: 100%;
+  height: 250px; /* Altura uniforme para todas las imágenes */
+  overflow: hidden;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Evita deformaciones */
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-img img {
+  transform: scale(1.1);
+}
+
+/* Redes sociales */
+.team-social {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-card:hover .team-social {
+  opacity: 1;
+}
+
+.team-social a {
+  color: #6FBF4E;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+  background: #6FBF4E;
+  color: #fff;
+}
+
+/* Información del equipo */
+.team-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.team-info h5 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.team-info span {
+  color: #777;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* ==============================
+   CARRUSEL MODERNO
+============================== */
+
+/* Sección Principal del Carrusel */
+.carousel-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imágenes del Carrusel */
+.carousel-image {
+  width: 100%;
+  height: 90vh; /* Altura adaptable */
+  object-fit: cover;
+  filter: brightness(70%); /* Oscurece ligeramente la imagen */
+  transition: all 0.5s ease;
+}
+
+/* Efecto de zoom suave en hover */
+.carousel-item:hover .carousel-image {
+  transform: scale(1.05);
+  filter: brightness(80%);
+}
+
+/* Overlay del Carrusel */
+.carousel-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+}
+
+.carousel-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff; /* Cambia a blanco */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Aumenta la sombra para mejor contraste */
+}
+
+.carousel-btn {
+  display: inline-block;
+  background-color: #6FBF4E;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 10px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: #5a9c3f;
+  transform: translateY(-3px);
+}
+
+/* Controles del Carrusel */
+.carousel-control-prev, .carousel-control-next {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.custom-prev-icon, .custom-next-icon {
+  font-size: 2rem;
+  color: #fff;
+  line-height: 60px;
+  text-align: center;
+  display: block;
+}
+
+/* Transición entre diapositivas */
+.carousel-inner {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* ==============================
+   TOP BAR MEJORADO
+============================== */
+
+/* Contenedor principal del Top Bar */
+.topbar {
+  background: #f8f9fa; /* Fondo suave */
+  border-bottom: 1px solid #e0e0e0; /* Borde inferior */
+  font-size: 14px;
+  color: #555;
+}
+
+/* Información de contacto */
+.contact-info {
+  display: flex;
+  gap: 15px; /* Espacio entre elementos */
+}
+
+.contact-item {
+  margin: 0;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-item i {
+  color: #6FBF4E; /* Color del ícono */
+  font-size: 16px;
+}
+
+/* Divisor */
+.divider {
+  color: #ccc;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+/* Redes sociales */
+.social-icons {
+  display: flex;
+  gap: 10px; /* Espacio entre íconos */
+}
+
+.social-icon {
+  color: #6FBF4E; /* Color principal */
+  background: #e8f5e9; /* Fondo suave */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* Hover de Redes Sociales */
+.social-icon:hover {
+  color: #fff;
+  background: #6FBF4E;
+  transform: scale(1.1);
+}
+
+/* Íconos específicos (colores personalizados) */
+.social-icon.facebook:hover { background: #3b5998; }
+.social-icon.instagram:hover { background: #e1306c; }
+.social-icon.twitter:hover { background: #00acee; }
+.social-icon.linkedin:hover { background: #0077b5; }
+.social-icon.youtube:hover { background: #ff0000; }
+
+
+/* ==============================
+   NAVBAR MODERNO Y RESPONSIVO
+============================== */
+
+/* Contenedor principal */
+.navbar-section {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Cubre toda la pantalla */
+}
+
+/* Estilo del Navbar */
+.custom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #6FBF4E;
+}
+
+/* Menú principal */
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #333;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #6FBF4E;
+  transform: scale(1.1);
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f8f9fa;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 0;
+  list-style: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  color: #333;
+  padding: 8px 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #6FBF4E;
+  color: #fff;
+}
+
+/* Botón Toggler */
+.navbar-toggler {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6FBF4E;
+}
+
+/* Responsividad */
+@media (max-width: 991px) {
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-nav.active {
+    display: flex;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+}
+
+
+/* ==============================
+   FOOTER MODERNO Y RESPONSIVO
+============================== */
+
+/* Contenedor principal */
+.footer-section {
+  background-color: #111;
+  color: #ddd;
+  padding: 50px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Logo y descripción */
+.footer-about {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-logo span {
+  color: #6FBF4E;
+}
+
+.footer-text {
+  font-size: 14px;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #6FBF4E;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #fff;
+}
+
+/* Navegación */
+.footer-links {
+  flex: 1;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-links h5 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #6FBF4E;
+}
+
+/* Contáctenos */
+.footer-contact {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+
+.footer-contact h5 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact ul li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.footer-contact ul li i {
+  margin-right: 10px;
+  color: #6FBF4E;
+}
+
+/* Formulario */
+.footer-form {
+  display: flex;
+  margin-top: 10px;
+}
+
+.footer-form input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.footer-form button {
+  background-color: #6FBF4E;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-form button:hover {
+  background-color: #4b8b37;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-social a {
+    margin: 0 5px;
+  }
+}
+
+/* ==============================
+   FORMULARIO HORIZONTAL MEJORADO
+============================== */
+
+/* Sección Principal */
+.booking-section {
+  background-color: #f8f9fa;
+  padding: 60px 10px;
+}
+
+/* Contenedor del Formulario */
+.booking-form-container {
+  max-width: 100%;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Campos del Formulario */
+.custom-input,
+.custom-select {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 14px;
+  font-size: 16px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus,
+.custom-select:focus {
+  border-color: #6FBF4E;
+  box-shadow: 0 0 10px rgba(111, 191, 78, 0.2);
+  outline: none;
+}
+
+/* Etiquetas */
+.form-label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+/* Botón */
+.custom-btn {
+  background-color: #6FBF4E;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 12px 50px;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #4a8d37;
+  box-shadow: 0 5px 15px rgba(111, 191, 78, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Alineación y Espaciado */
+.row.gx-3 {
+  --bs-gutter-x: 1rem; /* Espaciado horizontal */
+}
+
+.row.gy-2 {
+  --bs-gutter-y: 0.5rem; /* Espaciado vertical */
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+  .custom-input,
+  .custom-select {
+    font-size: 14px;
+  }
+
+  .custom-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-form-container {
+    padding: 20px;
+  }
+
+  .gx-3 > div {
+    flex: 0 0 100%;
+  }
+
+  .custom-btn {
+    width: 100%;
+  }
+}
+/* Asegura que todos los inputs y selects tengan el mismo tamaño */
+.custom-input,
+.custom-select {
+  width: 100%; /* Extiende completamente dentro de su contenedor */
+  height: 45px; /* Uniforma la altura */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  box-sizing: border-box; /* Incluye padding y borde dentro del tamaño */
+}
+
+/* Ajusta los selects específicamente */
+.custom-select {
+  appearance: none; /* Elimina estilos por defecto del navegador */
+  background-color: #fff;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%236FBF4E" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Flecha personalizada */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px; /* Espacio para la flecha */
+}
+
+/* Para dispositivos pequeños */
+@media (max-width: 768px) {
+  .custom-input,
+  .custom-select {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
+
+
