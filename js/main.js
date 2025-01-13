@@ -69,4 +69,31 @@
 })(jQuery);
 
 
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Evita el comportamiento por defecto
+    const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
+
+    fetch("https://tu-api-contacto.com/send-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById("success-message").classList.remove("d-none");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+});
+
+
+
+
+
 
