@@ -11830,4 +11830,242 @@ body {
 
 
 
+/* Sección de paquetes turísticos */
+.travel-packages-section {
+  background-color: #f8f9fa;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  color: #4f9e38;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tarjetas de paquetes turísticos */
+.package-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagen de la tarjeta */
+.package-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Contenido de la tarjeta */
+.package-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.package-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.package-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.package-title a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.package-title a:hover {
+  color: #4f9e38;
+}
+
+/* Pie de la tarjeta */
+.package-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+}
+
+.rating-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating {
+  font-size: 1rem;
+  color: #333;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .package-image {
+      height: 150px;
+  }
+
+  .package-title {
+      font-size: 1rem;
+  }
+
+  .price {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .package-details {
+      flex-wrap: wrap;
+  }
+
+  .rating-price {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+
+/* Estilos generales de la sección */
+.reservation-section {
+  background-color: #f8f9fa;
+  padding: 80px 15px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: #4f9e38;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tarjetas de reservación */
+.reservation-card {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reservation-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.reservation-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.reservation-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.reservation-card:hover .reservation-overlay {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.reservation-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.price-tag {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.btn-reservation {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  background-color: #4f9e38;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reservation:hover {
+  background-color: #3a7b2a;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .reservation-image {
+      height: 200px;
+  }
+
+  .reservation-title {
+      font-size: 1.2rem;
+  }
+
+  .btn-reservation {
+      padding: 8px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .reservation-overlay {
+      padding: 15px;
+  }
+
+  .price-tag {
+      font-size: 1rem;
+  }
+}
+
+
+
 
